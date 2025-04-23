@@ -4,6 +4,7 @@ mod treadpool;
 mod atomic_usize;
 mod btree_map;
 mod fn_once;
+mod rc_refcell;
 fn main(){
 
     use std::thread;
@@ -31,5 +32,6 @@ fn main(){
     atomic_usize::atomic_size();
     btree_map::btree_map();
     fn_once::fn_once();
+    rc_refcell::rc_refcell();
 
 }
