@@ -1,11 +1,19 @@
-fn main(){
-    let mut movies = ["Inception", "The Matrix", "Interstellar"];
+fn  main(){
 
-    let  slice_movies = &mut movies[1..3];
+    let task1 = std::thread::spawn(|| {
+        for i in 0..10 {
+            println!("Task 1: {}", i);
+        }
+    });
 
-    for movie in slice_movies.iter_mut() {
-        println!("{}", movie);
-        *movie = "Updated Movie";
-    }
+
+    let task2 = {
+        for i in 0..10 {
+            println!("Task 2: {}", i);
+        }
+    };
+    task1.join().unwrap();
+    task2
+
 
 }
