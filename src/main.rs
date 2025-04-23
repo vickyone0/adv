@@ -1,6 +1,7 @@
 use std::sync::{Arc, Mutex};
 
 mod treadpool;
+mod atomic_usize;
 
 fn main(){
 
@@ -26,5 +27,6 @@ fn main(){
     println!("Final data: {:?}", *data.lock().unwrap());
 
     treadpool::tread_pool();
+    atomic_usize::atomic_size();
 
 }
