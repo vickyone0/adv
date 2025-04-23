@@ -1,5 +1,7 @@
 use std::sync::{Arc, Mutex};
 
+mod treadpool;
+
 fn main(){
 
     use std::thread;
@@ -22,5 +24,7 @@ fn main(){
     }
 
     println!("Final data: {:?}", *data.lock().unwrap());
+
+    treadpool::tread_pool();
 
 }
