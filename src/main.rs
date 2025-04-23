@@ -1,10 +1,11 @@
 fn main(){
-    let  movies = ["Inception", "The Matrix", "Interstellar"];
+    let mut movies = ["Inception", "The Matrix", "Interstellar"];
 
-    let slice_movies = &movies[1..3];
+    let  slice_movies = &mut movies[1..3];
 
-    for movie in slice_movies {
+    for movie in slice_movies.iter_mut() {
         println!("{}", movie);
+        *movie = "Updated Movie";
     }
 
 }
