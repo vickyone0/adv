@@ -2,7 +2,8 @@ use std::sync::{Arc, Mutex};
 
 mod treadpool;
 mod atomic_usize;
-
+mod btree_map;
+mod fn_once;
 fn main(){
 
     use std::thread;
@@ -28,5 +29,7 @@ fn main(){
 
     treadpool::tread_pool();
     atomic_usize::atomic_size();
+    btree_map::btree_map();
+    fn_once::fn_once();
 
 }
