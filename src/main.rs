@@ -1,12 +1,10 @@
 fn main(){
-    let mut table = Vec::new();
+    let  movies = ["Inception", "The Matrix", "Interstellar"];
 
-    table.push(3);
-    table.push(4);
-    table.push(7);
-    table.push(6);
+    let slice_movies = &movies[1..3];
 
-    print!("{:?} ", table);
-    table.sort();
-    print!("{:?} ", table);
+    for movie in slice_movies {
+        println!("{}", movie);
+    }
+
 }
