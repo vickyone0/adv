@@ -1,19 +1,26 @@
-fn  main(){
+use std::sync::{Arc, Mutex};
 
-    let task1 = std::thread::spawn(|| {
-        for i in 0..10 {
-            println!("Task 1: {}", i);
-        }
-    });
+fn main(){
 
+    use std::thread;
 
-    let task2 = {
-        for i in 0..10 {
-            println!("Task 2: {}", i);
-        }
-    };
-    task1.join().unwrap();
-    task2
+    let data = Arc::new(Mutex::new(vec![1,2,3]));
 
+    let mut handles = Vec::new();
+
+    for _ in 0..10 {
+        let data = Arc::clone(&data);
+        let handle = thread::spawn(move || {
+            let mut data = data.lock().unwrap();
+            data.push(4);
+        });
+        handles.push(handle);
+    }
+
+    for handle in handles {
+        handle.join().unwrap();
+    }
+
+    println!("Final data: {:?}", *data.lock().unwrap());
 
 }
