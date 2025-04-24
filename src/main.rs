@@ -5,6 +5,8 @@ mod atomic_usize;
 mod btree_map;
 mod fn_once;
 mod rc_refcell;
+mod iter;
+mod mutax_condver;
 fn main(){
 
     use std::thread;
@@ -28,10 +30,11 @@ fn main(){
 
     println!("Final data: {:?}", *data.lock().unwrap());
 
-    treadpool::tread_pool();
-    atomic_usize::atomic_size();
-    btree_map::btree_map();
-    fn_once::fn_once();
-    rc_refcell::rc_refcell();
-
+    // treadpool::tread_pool();
+    // atomic_usize::atomic_size();
+    // btree_map::btree_map();
+    // fn_once::fn_once();
+    // rc_refcell::rc_refcell();
+    iter::iterating();
+    mutax_condver::mutex_condvar();
 }
