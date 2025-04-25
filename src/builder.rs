@@ -4,47 +4,28 @@ model: String,
 size: i32,
 color: String,
 }
-impl Bicycle { 
-fn make(&self) -> &String {
-&self.make
-}
-fn model(&self) -> &String {
-&self.model
-}
-fn size(&self) -> i32 {
-self.size
-}
-fn color(&self) -> &String {
-&self.color
-}
-}
+// impl Bicycle { 
+// fn make(&self) -> &String {
+// &self.make
+// }
+// fn model(&self) -> &String {
+// &self.model
+// }
+// fn size(&self) -> i32 {
+// self.size
+// }
+// fn color(&self) -> &String {
+// &self.color
+// }
+// }
 
-trait Builder<T> {
-    fn new() -> Self;
-    fn build(self) -> T;
-    } 
+   
+#[derive(Debug)]
     pub struct BicycleBuilder {
         bicycle: Bicycle, 
         }
-    impl Builder<Bicycle> for BicycleBuilder {
-        fn new() -> Self {
-        Self {
-        bicycle: Bicycle {
-        make: String::new(),
-        model: String::new(),
-        size: 0,
-        color: String::new(),
-        },
-        }
-    }
-        
-        fn build(self) -> Bicycle {
-        self.bicycle
-        }
-    }
-trait Buildable<Target, B: Builder<Target>> {
-fn builder() -> B;
-} 
+   
+
 impl BicycleBuilder {
 pub fn new() -> Self { 
 Self {

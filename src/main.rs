@@ -9,6 +9,7 @@ mod iter;
 mod mutax_condver;
 mod rc_refcell;
 mod treadpool;
+mod fluent;
 fn main() {
     use std::thread;
 
@@ -41,10 +42,17 @@ fn main() {
 
 
     let mut bicycle_builder = builder::BicycleBuilder::new();
+    println!("My new bike: {:?}", bicycle_builder);
 bicycle_builder.with_make("Huffy");
 bicycle_builder.with_model("Radio");
-//bicycle_builder.with_size(46);
+bicycle_builder.with_size(46);
 bicycle_builder.with_color("red");
+
 let bicycle = bicycle_builder.build();
-println!("My new bike: {:#?}", bicycle); 
+println!("My new bike: {:#?}", bicycle);
+//let bicycle2 = bicycle_builder.build();
+println!("My new bike: {:#?}", bicycle);
+//bicycle_builder.bicycle.make();
+
+fluent::out();
 }
