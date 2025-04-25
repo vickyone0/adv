@@ -1,6 +1,5 @@
-pub fn iterating(){
-
-    let mut  vec = vec![1, 2, 3, 4, 5];
+pub fn iterating() {
+    let mut vec = vec![1, 2, 3, 4, 5];
 
     for i in vec.iter_mut() {
         println!("{}", i);
@@ -8,5 +7,4 @@ pub fn iterating(){
     }
 
     print!("vec: {:?}", vec);
-
 }

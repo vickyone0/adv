@@ -3,7 +3,6 @@ use std::sync::atomic::{AtomicUsize, Ordering};
 
 use std::thread;
 pub fn atomic_size() {
-
     let counter = Arc::new(AtomicUsize::new(0));
 
     let mut handles = vec![];

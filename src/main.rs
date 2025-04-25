@@ -1,17 +1,18 @@
 use std::sync::{Arc, Mutex};
 
-mod treadpool;
 mod atomic_usize;
 mod btree_map;
+mod builder;
+//use builder::bicycle_builder::BicycleBuilder;
 mod fn_once;
-mod rc_refcell;
 mod iter;
 mod mutax_condver;
-fn main(){
-
+mod rc_refcell;
+mod treadpool;
+fn main() {
     use std::thread;
 
-    let data = Arc::new(Mutex::new(vec![1,2,3]));
+    let data = Arc::new(Mutex::new(vec![1, 2, 3]));
 
     let mut handles = Vec::new();
 
@@ -37,4 +38,13 @@ fn main(){
     // rc_refcell::rc_refcell();
     iter::iterating();
     mutax_condver::mutex_condvar();
+
+
+    let mut bicycle_builder = builder::BicycleBuilder::new();
+bicycle_builder.with_make("Huffy");
+bicycle_builder.with_model("Radio");
+//bicycle_builder.with_size(46);
+bicycle_builder.with_color("red");
+let bicycle = bicycle_builder.build();
+println!("My new bike: {:#?}", bicycle); 
 }
